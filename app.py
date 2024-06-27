@@ -30,6 +30,12 @@ def start_play():
     user_difficulty_selection = get_integer_in_range_from_user("Please select difficulty level from 1 to 5", 1, 5)
     print("difficulty leve: " + str(user_difficulty_selection))
     set_new_frame_timeout("Welcome to " + available_games[user_game_id]['name'], 2)
+    play_again = 'y'
+    while(play_again == 'y'):
+        init_selected_game(user_game_id, user_difficulty_selection)
+        play_again = input("Play again (type 'y' for yes, any key for no)")
+
+def init_selected_game(user_game_id, user_difficulty_selection):
     if(user_game_id == 0):
         user_win = play_memory_game(user_difficulty_selection)
     elif(user_game_id == 1):
@@ -37,4 +43,3 @@ def start_play():
     elif(user_game_id == 2):
         user_win = play_currency_game(user_difficulty_selection)
     print("user_win? "+str(user_win))
-

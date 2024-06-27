@@ -24,8 +24,8 @@ def get_list_from_user(difficulty_level):
     
 
 def compare_results(generated_sequence, user_list):
-    print("AND Now!... ")
-    print("LET'S SEE IF YOU GOT IT RIGHT: ")
+    print('''AND Now!... 
+LET'S SEE IF YOU GOT IT RIGHT: ''')
     user_win = True
     for i in range(len(generated_sequence)):
         print("VALUE No. " + str(i) + " WAS: " + str(generated_sequence[i]) + " AND YOU GUESSED: " + str(user_list[i])) 

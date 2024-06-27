@@ -13,16 +13,14 @@ def get_guess_from_user():
 
 
 def get_USD_to_ILS_rates():
-    try:
-        url = "https://api.freecurrencyapi.com/v1/latest?apikey=fca_live_QvGMxyvOdOceqDlKNRRYKGcndwEro2RPmgbExvnS"
-        resp = requests.get(url)
-        cur_list = json.loads(resp.text)
-        if resp.status_code != 200:
-            # print("OOPS! We are having issues connecting the currencies API. Please try again later.")
-            exit_game("OOPS! We are having issues connecting the currencies API. Please try again later.")
-        return cur_list['data']['ILS']
-    except:
+    url = "https://api.freecurrencyapi.com/v1/latest?apikey=fca_live_QvGMxyvOdOceqDlKNRRYKGcndwEro2RPmgbExvnS"
+    resp = requests.get(url)
+    if resp.status_code != 200:
+        # print("OOPS! We are having issues connecting the currencies API. Please try again later.")
         exit_game("OOPS! We are having issues connecting the currencies API. Please try again later.")
+        return None
+    cur_list = json.loads(resp.text)
+    return cur_list['data']['ILS']
 
     
 def get_money_interval(difficulty_level):
@@ -47,8 +45,8 @@ def compare_results(user_guess, money_interval_arr):
 def play(difficulty_level):
     money_interval_arr = get_money_interval(difficulty_level)
     # print(money_interval_arr)
-    print("THE AMOUNT IN ILS IS: " + str(money_interval_arr["ILS_amount"]))
-    print("You need to guess the amount IN USD with offset less then " + str(money_interval_arr['difficulty_offset']))    
+    print(f'''THE AMOUNT IN ILS IS: {money_interval_arr["ILS_amount"]} 
+You need to guess the amount IN USD with offset less then  {money_interval_arr['difficulty_offset']}''')    
     user_guess = get_guess_from_user()
     # print("THE TRUE AMOUNT IN USD IS: " + str(money_interval_arr["USD_amount"]))
     user_win = compare_results(user_guess, money_interval_arr)

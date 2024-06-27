@@ -11,8 +11,8 @@ def get_guess_from_user(difficulty_level):
     
 
 def compare_results(user_guess, generated_number):
-    print("The computer generated: " + str(generated_number))
-    print("You chose: " + str(user_guess))
+    print(f'''The computer generated: {generated_number}
+You chose: {user_guess}''')
     return user_guess == generated_number
 
 
