@@ -2,6 +2,8 @@ from utils import get_integer_in_range_from_user, Screen_cleaner, set_new_frame_
 from games.geuss_game import play as play_guess_game        
 from games.currency_game import play as play_currency_game
 from games.memory_game import play as play_memory_game
+from score import add_score
+
 
 def welcome():
     Screen_cleaner()
@@ -42,4 +44,6 @@ def init_selected_game(user_game_id, user_difficulty_selection):
         user_win = play_guess_game(user_difficulty_selection)
     elif(user_game_id == 2):
         user_win = play_currency_game(user_difficulty_selection)
+    if(user_win):
+        add_score(user_difficulty_selection)
     print("user_win? "+str(user_win))
