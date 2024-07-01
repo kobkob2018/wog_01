@@ -33,7 +33,7 @@ def start_play():
     play_again = 'y'
     while(play_again == 'y'):
         init_selected_game(user_game_id, user_difficulty_selection)
-        play_again = input("Play again (type 'y' for yes, any key for no)")
+        play_again = input("Play again? (type 'y' for yes, any key for no): ")
 
 def init_selected_game(user_game_id, user_difficulty_selection):
     if(user_game_id == 0):
