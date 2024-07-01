@@ -18,8 +18,8 @@ def home():
     return render_template('score_view.html', user_score = user_score)
   
 # in case you want the browser to popup automatically
-import webbrowser
-webbrowser.open_new('http://127.0.0.1:5000/')
+# import webbrowser
+# webbrowser.open_new('http://127.0.0.1:5000/')
 app.run("0.0.0.0")
 
  
