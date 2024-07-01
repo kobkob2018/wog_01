@@ -1,10 +1,10 @@
-from wog_helper import get_integer_in_range_from_user, clear_frame, set_new_frame_timeout
+from utils import get_integer_in_range_from_user, Screen_cleaner, set_new_frame_timeout
 from games.geuss_game import play as play_guess_game        
 from games.currency_game import play as play_currency_game
 from games.memory_game import play as play_memory_game
 
 def welcome():
-    clear_frame()
+    Screen_cleaner()
     user_name = input("please enter username: ")
     print(f"Hi {user_name} and welcome to the World of Games: The Epic Journey")
 

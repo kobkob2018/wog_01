@@ -1,4 +1,4 @@
-from wog_helper import get_integer_in_range_from_user, set_new_frame_timeout
+from utils import get_integer_in_range_from_user, set_new_frame_timeout
 import random
 
 

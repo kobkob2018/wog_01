@@ -1,5 +1,5 @@
 import requests, json, random
-from wog_helper import exit_game
+from utils import exit_game
 
 def get_guess_from_user():
     user_guess = None

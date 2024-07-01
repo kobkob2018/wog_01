@@ -1,5 +1,8 @@
 import os, time
 
+SCORES_FILE_NAME = "score.txt"
+BAD_RETURN_CODE = "506"
+
 def get_integer_in_range_from_user(input_phrase, range_from, range_to):
     user_selection = None
     while user_selection is None:
@@ -17,10 +20,10 @@ def exit_game(exit_phrase):
 
 def set_new_frame_timeout(text, seconds):
     time.sleep(seconds)
-    clear_frame()
+    Screen_cleaner()
     print(text)
 
-def clear_frame():
+def Screen_cleaner():
     os.system('cls')
     if os.name == 'nt':
         os.system('cls')
