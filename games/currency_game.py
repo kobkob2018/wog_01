@@ -1,5 +1,6 @@
-import requests, json, random
+from currency_converter import CurrencyConverter
 from utils import exit_game
+import random
 
 def get_guess_from_user():
     user_guess = None
@@ -10,26 +11,15 @@ def get_guess_from_user():
         else:
             print("Your guess is invalid")
     return user_guess
-
-
-def get_USD_to_ILS_rates():
-    url = "https://api.freecurrencyapi.com/v1/latest?apikey=fca_live_QvGMxyvOdOceqDlKNRRYKGcndwEro2RPmgbExvnS"
-    resp = requests.get(url)
-    if resp.status_code != 200:
-        # print("OOPS! We are having issues connecting the currencies API. Please try again later.")
-        exit_game("OOPS! We are having issues connecting the currencies API. Please try again later.")
-        return None
-    cur_list = json.loads(resp.text)
-    return cur_list['data']['ILS']
-
     
 def get_money_interval(difficulty_level):
+
     print("The computer choose a random USD amount between 0 to 100")
+    converter = CurrencyConverter()
+
     USD_amount = random.randint(0, 100)
-    ILS_rate = get_USD_to_ILS_rates()
-    # print("rates are")
-    # print(ILS_rate)
-    ILS_amount = USD_amount * ILS_rate
+    ILS_amount = converter.convert(USD_amount, 'USD', 'ILS')
+
     difficulty_offset = 6 - difficulty_level
     money_interval_arr = {"ILS_amount":ILS_amount, "USD_amount":USD_amount, "from":USD_amount - difficulty_offset, "to":USD_amount + difficulty_offset, "difficulty_level": difficulty_level, "difficulty_offset": difficulty_offset}
     return money_interval_arr
