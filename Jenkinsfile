@@ -2,11 +2,10 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('BUILD') {
             steps {
                 script {
-                    def currentDir = pwd()
-                    echo "Current working directory: ${currentDir}"
+                    sh 'docker build -t my-jtest:1.3 .'
                 }
             }
         }
