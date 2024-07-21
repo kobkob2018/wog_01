@@ -5,7 +5,7 @@ pipeline {
         stage('BUILD') {
             steps {
                 script {
-                    sh 'docker build -t my-jtest:1.3 .'
+                    bat 'docker build -t my-jtest:1.3 .'
                 }
             }
         }
