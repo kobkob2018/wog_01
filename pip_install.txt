@@ -1,4 +1,0 @@
-forex-python
-requests
-Flask
-currencyconverter
