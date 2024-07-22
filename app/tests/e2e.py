@@ -11,7 +11,7 @@ service = Service(ChromeDriverManager().install(), options=chrome_options)
 
 driver = webdriver.Chrome(service=service)
 
-driver.get("http://localhost:5000/")
+driver.get("http://localhost:8777/")
 
 
 
