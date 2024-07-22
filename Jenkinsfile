@@ -4,12 +4,12 @@ pipeline {
     stages {
         stage('BUILD') {
             steps {
-                bat 'docker build -t my-jtest:1.45 .'    
+                bat 'docker build -t my-wog:v1.1 .'    
             }
         }
         stage('RUN') {
             steps {
-                bat 'docker run -d --rm -p 8777:5000 --name wog_flask  -v C:/Users/yacov/work/school/dockersftuff/scoremount.txt:/app/datafiles/score.txt my-jtest:1.45'
+                bat 'docker run -d --rm -p 8777:5000 --name wog_flask  -v C:/Users/yacov/work/school/dockersftuff/scoremount.txt:/app/datafiles/score.txt my-wog:v1.1'
             }
         }
         stage('E2E') {
