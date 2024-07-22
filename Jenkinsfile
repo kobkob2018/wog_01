@@ -4,12 +4,12 @@ pipeline {
     stages {
         stage('BUILD') {
             steps {
-                bat 'docker build -t my-jtest:1.4 .'    
+                sh 'docker build -t my-jtest:1.42 .'    
             }
         }
         stage('RUN') {
             steps {
-                bat 'winpty docker run -it my-jtest:1.4'
+                sh 'winpty docker run -it my-jtest:1.42'
             }
         }
     }
