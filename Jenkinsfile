@@ -9,7 +9,7 @@ pipeline {
         }
         stage('RUN') {
             steps {
-                bat 'winpty docker run -it my-jtest:1.4'
+                bat 'docker run -it my-jtest:1.4'
             }
         }
     }
