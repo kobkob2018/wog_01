@@ -9,7 +9,7 @@ pipeline {
         }
         stage('RUN') {
             steps {
-                bat 'docker run -p 8777:5000 --name wog_flask  -v C:/Users/yacov/work/school/dockersftuff/scoremount.txt:/app/datafiles/score.txt -it my-jtest:1.4'
+                bat 'docker run --rm -p 8777:5000 --name wog_flask  -v C:/Users/yacov/work/school/dockersftuff/scoremount.txt:/app/datafiles/score.txt -it my-jtest:1.4'
             }
         }
         stage('E2E') {
