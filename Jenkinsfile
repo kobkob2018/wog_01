@@ -14,7 +14,7 @@ pipeline {
         }
         stage('E2E') {
             steps {
-                    bat "python tests/e2e.py"
+                    bat "python app/tests/e2e.py"
             }
         }
         stage('Finalize') {
