@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import ChromiumOptions
 
-print("Here goes nothing!!!!!!!! 2")
+print("Here goes nothing!!!!!!!! 5")
 
 chrome_options = ChromiumOptions()
 service = Service(ChromeDriverManager().install(), options=chrome_options)
