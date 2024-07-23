@@ -9,4 +9,4 @@ services:
     ports:
       - "8777:5000"
     volumes:
-      - "./score_mount.txt:/app/datafiles/score.txt"
+      - "./scoremount.txt:/app/datafiles/score.txt"

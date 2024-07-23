@@ -1,4 +1,4 @@
 __pycache__
 datafiles/
 !datafiles/.gitkeep
-score_mount.txt
+scoremount.txt
