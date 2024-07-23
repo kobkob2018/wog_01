@@ -18,11 +18,10 @@ def test_scores_service(app_url):
     driver.get("http://localhost:8777/")
     score_element = driver.find_element(By.ID,"score")
     if not score_element:
-       print("No score element found")
-    else:
-       print("yes found")
+        print("no score element found")
+        return '-1'
     test_result = score_element.text
-    print(test_result)
+    print("test result is " + test_result)
     if not test_result:
        print("no test result found")
        return '-1'
@@ -35,8 +34,8 @@ def main_function():
     int_test_result = int(test_result)
     print(int_test_result)
     if(int_test_result > 1000 or int_test_result < 1):
-       return sys.exit(0)
-    return sys.exit(-1)
+       return sys.exit(-1)
+    return sys.exit(0)
 
 
 
