@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('DOCKER') {
             steps {
-                bat 'docker-compose up --build -d'    
+                bat 'docker-compose up --build -d --rm'    
             }
         }
         stage('E2E') {
