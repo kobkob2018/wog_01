@@ -35,7 +35,7 @@ def main_function():
     print(int_test_result)
     if(int_test_result > 1000 or int_test_result < 1):
        return sys.exit(-1)
-    return sys.exit(-1)
+    return sys.exit(0)
 
 
 
