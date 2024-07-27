@@ -9,4 +9,4 @@ services:
     ports:
       - "8777:5000"
     volumes:
-      - "./scoremount.txt:/app/datafiles/score.txt"
+      - "/c/jenkins/volumes/scoresmount.txt:/app/datafiles/score.txt"
