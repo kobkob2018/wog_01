@@ -2,14 +2,9 @@ pipeline {
     agent any
 
     stages {
-        stage('BUILD') {
+        stage('DOCKER') {
             steps {
-                bat 'docker build -t world-wog:1.1 .'    
-            }
-        }
-        stage('RUN') {
-            steps {
-                bat 'docker run -d --rm -p 8777:5000 --name wog_flask  -v ./work/school/dockersftuff/scoremount.txt:/app/datafiles/score.txt my-wog:v1.1'
+                bat 'docker-compose up --build -d'    
             }
         }
         stage('E2E') {
