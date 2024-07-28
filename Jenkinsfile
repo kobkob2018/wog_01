@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment{
-        IMAGE_VERSION = '2.5'
+        IMAGE_VERSION = '2.6'
         IMAGE_NAME = 'wog_world'
         DOCKER_USERNAME = "${env.DOCKER_IO_USERNAME ?: ''}"
 
