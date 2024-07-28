@@ -7,10 +7,9 @@ pipeline {
     stages {
         stage('DOCKER') {
             steps {
-                script{
-                    def myVar = env.DOCKER_USERNAME
-                    echo "The value of MY_VAR is ${myVar}"
-                } 
+
+                echo "The value of MY_VAR is ${env.DOCKER_USERNAME}"
+                 
                 
                 bat 'docker-compose up --build -d'    
             }
