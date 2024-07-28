@@ -8,14 +8,22 @@ __The actuall app for the exercise is a python script__ that simulates a gaming 
 
 __To see how to play the actual games__ [click here](#play-the-game)
 
-## Jenkins ajent setup
+## Jenkins agent setup
 
-### In order to work with the jenkins pipeline, create a server ajent (node) with the following setup:
+### In order to work with the jenkins pipeline, create a server agent (node) with the following setup:
 
 - __Windows OS:__ The jenkins pipeline includes some "bat" commands, and require Windows OS to commit them.
-- __Docker:__ make sure your ajent have docker installed and running
-- __Docker login:__ At the end of the tesing process, the image is being uploaded to docker hub. ssh to your server, and use the "docker login" command to login to docker hub.
-- __Create score.txt file:__ In the docker-compise.yml file there is a volume setup for the file "score.txt". Make sure your ajent have this file at this path: "/c/jenkins/volumes/wog_data/score.txt"
+- __Docker:__ make sure your agent have docker installed and running
+- __Create score.txt file:__ In the docker-compise.yml file there is a volume setup for the file "score.txt". Make sure your agent have this file at this path: "/c/jenkins/volumes/wog_data/score.txt"
+
+### If you want to push the image after a successful test, please be sure to set docker credentioals for the agent:
+
+__At the end of the tesing process, the image is being uploaded to docker hub. to do so, folow these 2 steps__
+
+- __Docker login:__ ssh to your agent server, and use the "docker login" command to login to docker hub.
+- __Add DOCKER_USERNAME variable to the agent's node in jenkins:__ got to node's configuration, Environment variables and add 'DOCKER_USERNAME'. use your docker username here
+
+#### If the DOCKER_USERNAME variable does not exist, the push to hub step will be skipped, and the image tag will not contain the username prefix.
 
 <a id="play-the-game"></a>
 
