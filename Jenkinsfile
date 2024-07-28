@@ -20,11 +20,9 @@ pipeline {
     }
     post {
         always {
-            stage('Cleanup') {
                 echo 'Cleaning up...'
                 // This stage will run regardless of the pipeline result
                 bat "docker-compose down -v --rmi all"
-            }
         }
     }
 }
