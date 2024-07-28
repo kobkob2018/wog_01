@@ -4,8 +4,8 @@ pipeline {
     environment{
         IMAGE_VERSION = '2.3'
         IMAGE_NAME = 'wog_world'
-        DOCKER_USERNAME = "${env.DOCKER_USERNAME ?: ''}"
-        DOCKER_IMAGE_PREFIX = "${env.DOCKER_USERNAME ? env.DOCKER_USERNAME +'/': 'null'}"
+        DOCKER_USERNAME = "${env.DOCKER_IO_USERNAME ?: ''}"
+        DOCKER_IMAGE_PREFIX = "${env.DOCKER_USERNAME ? env.DOCKER_IO_USERNAME +'/': 'null'}"
     }
     stages {
         stage('DOCKER') {
