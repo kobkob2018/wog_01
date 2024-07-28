@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Finalize') {
             steps {
-                    bat "docker stop wog_flask"
+                    bat "docker-compose down -v --rmi all"
             }
         }
     }

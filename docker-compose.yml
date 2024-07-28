@@ -9,5 +9,5 @@ services:
     ports:
       - "8777:5000"
     volumes:
-      - "/c/jenkins/volumes/scoresmount.txt:/app/datafiles/score.txt"
+      - "/c/jenkins/volumes/wog_data:/app/datafiles"
     container_name: wog_flask
