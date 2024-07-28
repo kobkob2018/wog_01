@@ -2,15 +2,12 @@ pipeline {
     agent any
 
     environment{
-        IMAGE_VERSION = '1.6'
+        IMAGE_VERSION = '1.9'
+        DOCKER_USERNAME = ${env.DOCKER_USERNAME}
     }
     stages {
         stage('DOCKER') {
-            steps {
-
-                echo "The value of MY_VAR is ${env.DOCKER_USERNAME}"
-                 
-                
+            steps {                 
                 bat 'docker-compose up --build -d'    
             }
         }
@@ -22,8 +19,8 @@ pipeline {
         stage('Finalize') {
             steps {
                     echo "Pushing latest version to docker hub"
-                    bat "docker tag kobkobdock/wog_world:${IMAGE_VERSION} kobkobdock/wog_world:latest"
-                    bat "docker push kobkobdock/wog_world:${IMAGE_VERSION}"
+                    bat "docker tag ${DOCKER_USERNAME}/wog_world:${IMAGE_VERSION} kobkobdock/wog_world:latest"
+                    bat "docker push ${DOCKER_USERNAME}/kobkobdock/wog_world:${IMAGE_VERSION}"
             }
         }
     }
