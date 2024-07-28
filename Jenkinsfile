@@ -4,7 +4,7 @@ pipeline {
     environment{
         IMAGE_VERSION = '2.1'
         IMAGE_NAME = 'wog_world'
-        DOCKER_USERNAME = "${env.DOCKER_USERNAME ?: 'null'}"
+        DOCKER_USERNAME = "${env.DOCKER_USERNAME ?: ''}"
         DOCKER_IMAGE_PREFIX = "${env.DOCKER_USERNAME ? env.DOCKER_USERNAME +'/': 'null'}"
     }
     stages {
@@ -20,13 +20,15 @@ pipeline {
         }
         stage('Finalize') {
             steps {
-                if (DOCKER_USERNAME?.trim()) {
-                    echo "Pushing latest version to docker hub"
-                    bat "docker tag ${DOCKER_USERNAME}/${IMAGE_NAME}:${IMAGE_VERSION} ${DOCKER_USERNAME}/${IMAGE_NAME}:latest"
-                    bat "docker push ${DOCKER_USERNAME}/${IMAGE_NAME}:${IMAGE_VERSION}"
-                }
-                else{
-                    echo "DOCKER_USERNAME is not set, skipping Docker push."
+                script {
+                    if (DOCKER_USERNAME?.trim()) {
+                        echo "Pushing latest version to docker hub"
+                        bat "docker tag ${DOCKER_USERNAME}/${IMAGE_NAME}:${IMAGE_VERSION} ${DOCKER_USERNAME}/${IMAGE_NAME}:latest"
+                        bat "docker push ${DOCKER_USERNAME}/${IMAGE_NAME}:${IMAGE_VERSION}"
+                    }
+                    else{
+                        echo "DOCKER_USERNAME is not set, skipping Docker push."
+                    }
                 }
             }
         }
