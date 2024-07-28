@@ -2,7 +2,7 @@ FROM python:alpine
 WORKDIR /app
 
 COPY app/templates/ /app/templates/
-COPY app/flask_req.txt /app/flask_req.txt
+COPY app/flask_req.txt /app/flask_requirements.txt
 COPY app/utills.py /app/utills.py
 COPY app/main_score.py /app/main_score.py
 
