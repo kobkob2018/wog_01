@@ -3,7 +3,7 @@ WORKDIR /app
 
 COPY app/templates/ /app/templates/
 COPY app/flask_req.txt /app/flask_requirements.txt
-COPY app/utills.py /app/utills.py
+COPY app/utils.py /app/utils.py
 COPY app/main_score.py /app/main_score.py
 
 RUN pip install -r flask_requirements.txt
