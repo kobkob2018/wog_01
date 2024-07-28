@@ -21,7 +21,7 @@ pipeline {
         stage('Finalize') {
             steps {
                 script {
-                    if (DOCKER_USERNAME?.trim()) {
+                    if (env.DOCKER_IO_USERNAME?.trim()) {
                         echo "Pushing latest version to docker hub"
                         bat "docker tag ${DOCKER_USERNAME}/${IMAGE_NAME}:${IMAGE_VERSION} ${DOCKER_USERNAME}/${IMAGE_NAME}:latest"
                         bat "docker push ${DOCKER_USERNAME}/${IMAGE_NAME}:${IMAGE_VERSION}"
@@ -38,7 +38,8 @@ pipeline {
         always {
                 echo 'Cleaning up...'
                 // This stage will run regardless of the pipeline result
-                bat "docker-compose down -v --rmi all"
+                //bat "docker-compose down -v --rmi all"
+                bat "docker-compose down"
         }
     }
 }
