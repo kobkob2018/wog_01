@@ -2,7 +2,8 @@ pipeline {
     agent any
 
     environment{
-        IMAGE_VERSION = '1.9'
+        IMAGE_VERSION = '2.1'
+        IMAGE_NAME = 'wog_world'
         DOCKER_USERNAME = "${env.DOCKER_USERNAME}"
     }
     stages {
@@ -19,8 +20,8 @@ pipeline {
         stage('Finalize') {
             steps {
                     echo "Pushing latest version to docker hub"
-                    bat "docker tag ${DOCKER_USERNAME}/wog_world:${IMAGE_VERSION} kobkobdock/wog_world:latest"
-                    bat "docker push ${DOCKER_USERNAME}/kobkobdock/wog_world:${IMAGE_VERSION}"
+                    bat "docker tag ${DOCKER_USERNAME}/${IMAGE_NAME}:${IMAGE_VERSION} ${DOCKER_USERNAME}/${IMAGE_NAME}:latest"
+                    bat "docker push ${DOCKER_USERNAME}/${IMAGE_NAME}:${IMAGE_VERSION}"
             }
         }
     }
