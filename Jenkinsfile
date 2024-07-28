@@ -14,7 +14,16 @@ pipeline {
         }
         stage('Finalize') {
             steps {
-                    bat "docker-compose down -v --rmi all"
+                    echo "This will be the finalize stage, only if l goes well"
+            }
+        }
+    }
+    post {
+        always {
+            stage('Cleanup') {
+                echo 'Cleaning up...'
+                // This stage will run regardless of the pipeline result
+                bat "docker-compose down -v --rmi all"
             }
         }
     }
