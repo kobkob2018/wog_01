@@ -15,6 +15,7 @@ pipeline {
         stage('Finalize') {
             steps {
                     echo "This will be the finalize stage, only if l goes well"
+                    bat "docker tag kobkobdock/wog_world:${IMAGE_VERSION} kobkobdock/wog_world:latest"
                     bat "docker push kobkobdock/wog_world:${IMAGE_VERSION}"
             }
         }
