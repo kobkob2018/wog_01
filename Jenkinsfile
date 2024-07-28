@@ -3,7 +3,7 @@ pipeline {
 
     environment{
         IMAGE_VERSION = '1.9'
-        DOCKER_USERNAME = ${env.DOCKER_USERNAME}
+        DOCKER_USERNAME = "${env.DOCKER_USERNAME}"
     }
     stages {
         stage('DOCKER') {
