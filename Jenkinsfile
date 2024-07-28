@@ -15,10 +15,12 @@ pipeline {
         stage('Finalize') {
             steps {
                     echo "This will be the finalize stage, only if l goes well"
+                    bat "docker push kobkobdock/wog_world:1.12"
             }
         }
     }
     post {
+
         always {
                 echo 'Cleaning up...'
                 // This stage will run regardless of the pipeline result
