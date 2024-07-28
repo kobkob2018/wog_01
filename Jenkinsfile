@@ -5,7 +5,7 @@ pipeline {
         IMAGE_VERSION = '2.4'
         IMAGE_NAME = 'wog_world'
         DOCKER_USERNAME = "${env.DOCKER_IO_USERNAME ?: ''}"
-        DOCKER_IMAGE_PREFIX = "${env.DOCKER_IO_USERNAME ? env.DOCKER_IO_USERNAME +'/': 'null'}"
+        DOCKER_IMAGE_PREFIX = "${env.DOCKER_IO_USERNAME ? env.DOCKER_IO_USERNAME +'/': ''}"
     }
     stages {
         stage('DOCKER') {
@@ -38,8 +38,7 @@ pipeline {
         always {
                 echo 'Cleaning up...'
                 // This stage will run regardless of the pipeline result
-                //bat "docker-compose down -v --rmi all"
-                bat "docker-compose down"
+                bat "docker-compose down -v --rmi all"
         }
     }
 }
