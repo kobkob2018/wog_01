@@ -1,6 +1,9 @@
 pipeline {
     agent any
 
+    environment{
+        IMAGE_VERSION = '1.5'
+    }
     stages {
         stage('DOCKER') {
             steps {
