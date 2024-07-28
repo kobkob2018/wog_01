@@ -28,7 +28,8 @@ pipeline {
         always {
                 echo 'Cleaning up...'
                 // This stage will run regardless of the pipeline result
-                bat "docker-compose down -v --rmi all"
+                //bat "docker-compose down -v --rmi all"
+                bat "docker-compose down"
         }
     }
 }
