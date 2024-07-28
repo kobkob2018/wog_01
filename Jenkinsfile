@@ -7,6 +7,7 @@ pipeline {
     stages {
         stage('DOCKER') {
             steps {
+                "Running with USERNMAE=${env.DOCKER_USERNAME}"
                 bat 'docker-compose up --build -d'    
             }
         }
