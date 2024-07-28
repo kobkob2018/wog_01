@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   wog_flask:
-    image: kobkobdock/wog_world:1.12
+    image: kobkobdock/wog_world:${IMAGE_VERSION}
     build:
       context: .
       dockerfile: Dockerfile
