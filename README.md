@@ -21,9 +21,9 @@ __To see how to play the actual games__ [click here](#play-the-game)
 __At the end of the tesing process, the image is being uploaded to docker hub. to do so, folow these 2 steps__
 
 - __Docker login:__ ssh to your agent server, and use the "docker login" command to login to docker hub.
-- __Add DOCKER_USERNAME variable to the agent's node in jenkins:__ got to node's configuration, Environment variables and add 'DOCKER_USERNAME'. use your docker username here
+- __Add DOCKER_IO_USERNAME variable to the agent's node in jenkins:__ got to node's configuration, Environment variables and add 'DOCKER_IO_USERNAME'. use your docker username here
 
-#### If the DOCKER_USERNAME variable does not exist, the push to hub step will be skipped, and the image tag will not contain the username prefix.
+#### If the DOCKER_IO_USERNAME variable does not exist, the push to hub step will be skipped, and the image tag will not contain the username prefix.
 
 <a id="play-the-game"></a>
 
