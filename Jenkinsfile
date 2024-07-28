@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment{
-        IMAGE_VERSION = '1.5'
+        IMAGE_VERSION = '1.6'
     }
     stages {
         stage('DOCKER') {
@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Finalize') {
             steps {
-                    echo "This will be the finalize stage, only if l goes well"
+                    echo "Pushing latest version to docker hub"
                     bat "docker tag kobkobdock/wog_world:${IMAGE_VERSION} kobkobdock/wog_world:latest"
                     bat "docker push kobkobdock/wog_world:${IMAGE_VERSION}"
             }
@@ -28,8 +28,7 @@ pipeline {
         always {
                 echo 'Cleaning up...'
                 // This stage will run regardless of the pipeline result
-                //bat "docker-compose down -v --rmi all"
-                bat "docker-compose down"
+                bat "docker-compose down -v --rmi all"
         }
     }
 }
