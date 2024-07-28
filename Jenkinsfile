@@ -5,6 +5,8 @@ pipeline {
         IMAGE_VERSION = '2.5'
         IMAGE_NAME = 'wog_world'
         DOCKER_USERNAME = "${env.DOCKER_IO_USERNAME ?: ''}"
+
+        // Use username prefix in the docker-compose file, including the '/' to enable ducker push
         DOCKER_IMAGE_PREFIX = "${env.DOCKER_IO_USERNAME ? env.DOCKER_IO_USERNAME +'/': ''}"
     }
     stages {
